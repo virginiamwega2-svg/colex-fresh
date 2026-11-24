@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
@@ -16,28 +17,37 @@ export default function RoastedCoffeePage() {
     <main className="flex-1 bg-ivory">
       <SiteHeader />
 
-      <section className="bg-espresso px-6 py-28 text-ivory lg:px-10 lg:py-36">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-[#d5b889]">
+      <section className="relative isolate overflow-hidden bg-espresso px-6 py-24 text-ivory lg:px-10 lg:py-32">
+        <Image
+          src="/images/roasted-coffee-hero.jpg"
+          alt="Dark roasted coffee beans"
+          fill
+          sizes="100vw"
+          preload
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-espresso/80" />
+        <div className="relative z-10 mx-auto max-w-7xl animate-hero-enter">
+          <p className="text-xs font-semibold tracking-[0.3em] text-gold-highlight">
             KENYAN ROASTED COFFEE
           </p>
 
-          <h1 className="mt-7 max-w-4xl font-serif text-5xl leading-tight sm:text-6xl lg:text-7xl">
+          <h1 className="mt-7 max-w-4xl font-serif text-4xl leading-tight sm:text-6xl lg:text-7xl">
             Explore the character of Kenyan coffee.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-base leading-8 text-ivory/75">
+          <p className="mt-7 max-w-2xl text-base leading-8 text-ivory/90">
             Discover Colex Fresh roasted Kenyan coffee, available as whole beans and ground coffee. Explore an offering that celebrates the character and heritage of Kenyan coffee.
           </p>
 
-          <p className="mt-10 text-xs font-semibold tracking-[0.2em] text-[#d5b889]">
+          <p className="mt-10 text-xs font-semibold tracking-[0.2em] text-gold-highlight">
             WHOLE BEAN & GROUND COFFEE · KENYA
           </p>
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:gap-24">
+      <section className="px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <div>
             <p className="text-xs font-semibold tracking-[0.3em] text-gold">
               COFFEE, THOUGHTFULLY PRESENTED
@@ -60,7 +70,7 @@ export default function RoastedCoffeePage() {
         </div>
       </section>
 
-      <section className="bg-[#e9dfcf] px-6 py-24 lg:px-10 lg:py-28">
+      <section className="bg-sand px-6 py-24 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.3em] text-forest">
@@ -79,7 +89,17 @@ export default function RoastedCoffeePage() {
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2">
-            <article className="border border-espresso/15 bg-ivory p-8 sm:p-10">
+            <article className="overflow-hidden border border-espresso/15 bg-ivory">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/images/whole-coffee-beans.jpg"
+                  alt="Roasted whole coffee beans"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 sm:p-10">
               <p className="text-xs font-semibold tracking-[0.25em] text-gold">
                 01 / WHOLE BEANS
               </p>
@@ -96,10 +116,21 @@ export default function RoastedCoffeePage() {
               <p className="mt-8 border-t border-espresso/15 pt-5 text-xs font-semibold tracking-[0.15em] text-forest">
                 KENYAN ROASTED COFFEE
               </p>
+            </div>
             </article>
 
-            <article className="border border-espresso/15 bg-forest p-8 text-ivory sm:p-10">
-              <p className="text-xs font-semibold tracking-[0.25em] text-[#d5b889]">
+            <article className="overflow-hidden border border-espresso/15 bg-forest text-ivory">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/images/ground-coffee.jpg"
+                  alt="Freshly ground coffee"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 sm:p-10">
+              <p className="text-xs font-semibold tracking-[0.25em] text-gold-light">
                 02 / GROUND COFFEE
               </p>
 
@@ -112,24 +143,25 @@ export default function RoastedCoffeePage() {
                 for their chosen brewing routine.
               </p>
 
-              <p className="mt-8 border-t border-ivory/20 pt-5 text-xs font-semibold tracking-[0.15em] text-[#d5b889]">
+              <p className="mt-8 border-t border-ivory/20 pt-5 text-xs font-semibold tracking-[0.15em] text-gold-light">
                 KENYAN ROASTED COFFEE
               </p>
+            </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 text-center lg:px-10 lg:py-28">
+      <section className="px-6 py-20 text-center lg:px-10 lg:py-24">
         <p className="text-xs font-semibold tracking-[0.3em] text-gold">
           DISCOVER COLEX FRESH
         </p>
 
-        <h2 className="mx-auto mt-6 max-w-3xl font-serif text-4xl text-espresso sm:text-5xl">
+        <h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl text-espresso sm:text-5xl">
           Find your way to enjoy Kenyan coffee.
         </h2>
 
-        <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-espresso/70">
+        <p className="mx-auto mt-4 max-w-xl text-sm leading-8 text-espresso/70">
           Explore our whole-bean and ground coffee offerings. For product
           enquiries or business discussions, get in touch with the Colex
           Fresh team.
@@ -137,12 +169,12 @@ export default function RoastedCoffeePage() {
 
         <Link
           href="/#contact"
-          className="mt-9 inline-flex min-h-14 items-center justify-center bg-forest px-9 text-xs font-semibold tracking-[0.15em] text-ivory transition-colors hover:bg-espresso"
+          className="mt-7 inline-flex min-h-14 items-center justify-center bg-forest px-9 text-xs font-semibold tracking-[0.15em] text-ivory transition-colors hover:bg-espresso"
         >
           MAKE AN ENQUIRY
         </Link>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <Link
             href="/coffee"
             className="text-xs font-semibold tracking-[0.15em] text-forest transition-colors hover:text-gold"

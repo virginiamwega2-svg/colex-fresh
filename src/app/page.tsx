@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
@@ -19,23 +20,32 @@ export default function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section
-        className="relative flex min-h-[650px] items-center bg-cover bg-center px-6 py-32 text-ivory lg:min-h-[760px] lg:px-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(35, 24, 18, 0.55), rgba(35, 24, 18, 0.65)), url('/images/kenyan-coffee-highlands.jpg')",
-        }}
-      >
-        <div className="mx-auto w-full max-w-7xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-[#d5b889]">
+      <section className="relative isolate flex min-h-[650px] items-center overflow-hidden px-6 py-32 text-ivory lg:min-h-[760px] lg:px-10">
+        <Image
+          src="/images/kenyan-coffee-highlands.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          preload
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(35, 24, 18, 0.55), rgba(35, 24, 18, 0.65))",
+          }}
+        />
+        <div className="mx-auto w-full max-w-7xl animate-hero-enter">
+          <p className="text-xs font-semibold tracking-[0.18em] text-gold-light">
             KENYAN SPECIALTY COFFEE
           </p>
 
-          <h1 className="mt-7 max-w-4xl font-serif text-5xl leading-tight sm:text-6xl lg:text-8xl">
-            From Kenya&apos;s highlands to the world. Explore Kenyan green coffee sourcing and roasted coffee from Colex Fresh.
+          <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-tight sm:text-6xl lg:text-8xl">
+            From Kenya&apos;s highlands to the world.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-base leading-8 text-ivory/85 sm:text-lg">
+          <p className="mt-7 max-w-2xl text-base leading-7 text-ivory/85 sm:text-lg">
             Discover Kenyan coffee with Colex Fresh. We welcome
             enquiries from international importers, roasters and
             distributors exploring Kenyan green coffee sourcing,
@@ -45,7 +55,7 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="/coffee"
-              className="inline-flex min-h-14 items-center justify-center bg-ivory px-8 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-[#d5b889]"
+              className="inline-flex min-h-14 items-center justify-center bg-ivory px-8 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-gold-light"
             >
               EXPLORE OUR COFFEE
             </a>
@@ -61,28 +71,40 @@ export default function Home() {
       </section>
 
       {/* Brand philosophy */}
-      <section className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-semibold tracking-[0.3em] text-gold">
-            THE COLEX FRESH PHILOSOPHY
-          </p>
+      <section className="px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-[0.85fr_1.15fr] items-center gap-3 sm:grid-cols-2 sm:gap-5 lg:gap-16">
+          <div className="relative order-1 aspect-[3/4] overflow-hidden lg:order-2 lg:aspect-[4/5]">
+            <Image
+              src="/images/coffee-cherries.jpg"
+              alt="Coffee cherries growing on a branch"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
 
-          <h2 className="mt-7 font-serif text-4xl leading-tight text-espresso sm:text-5xl lg:text-6xl">
-            A story of origin. A world of possibility.
-          </h2>
+          <div className="order-2 max-w-xl lg:order-1">
+            <p className="text-xs font-semibold tracking-[0.12em] text-gold">
+              THE COLEX FRESH PHILOSOPHY
+            </p>
 
-          <p className="mx-auto mt-8 max-w-2xl text-sm leading-8 text-espresso/70 sm:text-base">
-            Every coffee has a story shaped by its origin,
-            growing environment and journey. At Colex Fresh,
-            we&apos;re building a connection between Kenya&apos;s rich
-            coffee heritage and the people and businesses who
-            appreciate its character around the world.
-          </p>
+            <h2 className="mt-3 font-serif text-2xl leading-tight text-espresso sm:mt-5 sm:text-3xl lg:text-6xl">
+              A story of origin. A world of possibility.
+            </h2>
+
+            <p className="mt-4 text-sm leading-6 text-espresso/75 sm:mt-5 sm:leading-7 lg:text-base">
+              Every coffee has a story shaped by its origin,
+              growing environment and journey. At Colex Fresh,
+              we&apos;re building a connection between Kenya&apos;s rich
+              coffee heritage and the people and businesses who
+              appreciate its character around the world.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Coffee collections */}
-      <section id="coffee" className="bg-[#e9dfcf] px-6 py-24 lg:px-10 lg:py-28">
+      <section id="coffee" className="bg-sand px-6 py-24 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-semibold tracking-[0.3em] text-forest">
             DISCOVER COLEX FRESH
@@ -94,9 +116,16 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
             <article
-              className="relative flex min-h-[440px] flex-col justify-between overflow-hidden bg-cover bg-center p-8 text-ivory sm:min-h-[500px] sm:p-12"
-              style={{ backgroundImage: "url('/images/roasted-coffee.jpg')" }}
+              className="relative flex min-h-[440px] flex-col justify-between overflow-hidden p-8 text-ivory sm:min-h-[500px] sm:p-12"
             >
+              <Image
+                src="/images/roasted-coffee.jpg"
+                alt="Roasted Kenyan coffee"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b100b]/95 via-[#1b100b]/45 to-[#1b100b]/20" />
 
               <div className="relative z-10">
@@ -118,16 +147,23 @@ export default function Home() {
 
               <a
                 href="/coffee/roasted"
-                className="relative z-10 mt-10 inline-flex min-h-14 items-center justify-center self-start border border-ivory bg-ivory px-7 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-[#d5b889]"
+                className="relative z-10 mt-10 inline-flex min-h-14 items-center justify-center self-start border border-ivory bg-ivory px-7 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-gold-light"
               >
                 DISCOVER ROASTED COFFEE →
               </a>
             </article>
 
             <article
-              className="relative flex min-h-[440px] flex-col justify-between overflow-hidden bg-cover bg-center p-8 text-ivory sm:min-h-[500px] sm:p-12"
-              style={{ backgroundImage: "url('/images/green-coffee-harvest.jpg')" }}
+              className="relative flex min-h-[440px] flex-col justify-between overflow-hidden p-8 text-ivory sm:min-h-[500px] sm:p-12"
             >
+              <Image
+                src="/images/green-coffee-harvest.jpg"
+                alt="Green coffee harvest"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+
               <div className="absolute inset-0 bg-gradient-to-t from-[#172018]/95 via-[#172018]/45 to-[#172018]/20" />
 
               <div className="relative z-10">
@@ -150,7 +186,7 @@ export default function Home() {
 
               <a
                 href="/coffee/green"
-                className="relative z-10 mt-10 inline-flex min-h-14 items-center justify-center self-start border border-ivory bg-ivory px-7 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-[#d5b889]"
+                className="relative z-10 mt-10 inline-flex min-h-14 items-center justify-center self-start border border-ivory bg-ivory px-7 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-gold-light"
               >
                 EXPLORE GREEN COFFEE & EXPORT →
               </a>
@@ -160,8 +196,8 @@ export default function Home() {
       </section>
 
       {/* Origins */}
-      <section id="origins" className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center lg:gap-24">
+      <section id="origins" className="px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:items-center lg:gap-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.3em] text-gold">
               ROOTED IN KENYA
@@ -195,10 +231,10 @@ export default function Home() {
       </section>
 
       {/* Quality */}
-      <section id="quality" className="bg-forest px-6 py-24 text-ivory lg:px-10 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center lg:gap-24">
+      <section id="quality" className="bg-forest px-6 py-20 text-ivory lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:items-center lg:gap-24">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] text-[#d5b889]">
+            <p className="text-xs font-semibold tracking-[0.18em] text-gold-light">
               OUR APPROACH TO QUALITY
             </p>
 
@@ -230,72 +266,44 @@ export default function Home() {
       </section>
 
       {/* Wholesale */}
-      <section id="wholesale" className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-semibold tracking-[0.3em] text-gold">
-            FOR INTERNATIONAL COFFEE BUYERS
-          </p>
+      <section id="wholesale" className="px-6 py-20 lg:px-10 lg:py-28">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/images/wholesale-coffee.jpg"
+                alt="Kenyan coffee beans presented for wholesale buyers"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
 
-          <h2 className="mt-7 font-serif text-4xl leading-tight text-espresso sm:text-5xl lg:text-6xl">
-            Explore Kenyan green coffee sourcing with Colex Fresh.
-          </h2>
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold tracking-[0.3em] text-gold">
+                FOR COFFEE BUSINESS PARTNERS
+              </p>
 
-          <p className="mx-auto mt-7 max-w-2xl text-sm leading-8 text-espresso/70 sm:text-base">
-            We welcome enquiries from international coffee importers,
-            specialty roasters and distributors interested in exploring
-            Kenyan green coffee. Share your sourcing requirements and
-            the specifications that matter to your business, and let&apos;s
-            start a conversation about potential opportunities.
-          </p>
+              <h2 className="mt-6 font-serif text-4xl leading-tight text-espresso sm:text-5xl lg:text-6xl">
+                Build your coffee offering with Colex Fresh.
+              </h2>
 
-          <Link
-            href="/#contact"
-            className="mt-10 inline-flex min-h-14 items-center justify-center bg-forest px-9 text-xs font-semibold tracking-[0.15em] text-ivory transition-colors hover:bg-espresso"
-          >
-            START A SOURCING ENQUIRY
-          </Link>
-        </div>
-      </section>
+              <p className="mt-6 text-sm leading-8 text-espresso/70 sm:text-base">
+                For businesses exploring Kenyan green coffee or roasted coffee for their customers, we welcome conversations about product requirements and how our current coffee offerings may fit their needs.
+              </p>
 
-      {/* Story */}
-      <section id="story" className="bg-[#e9dfcf] px-6 py-24 lg:px-10 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.3em] text-forest">
-              THE STORY OF COLEX FRESH
-            </p>
-
-            <h2 className="mt-6 font-serif text-4xl leading-tight text-espresso sm:text-5xl">
-              A Kenyan coffee perspective, with a global outlook.
-            </h2>
+              <Link
+                href="/#contact"
+                className="mt-10 inline-flex min-h-14 items-center justify-center bg-forest px-9 text-xs font-semibold tracking-[0.15em] text-ivory transition-colors hover:bg-espresso"
+              >
+                EXPLORE BUSINESS ENQUIRIES
+              </Link>
+            </div>
           </div>
-
-          <div>
-            <p className="text-sm leading-8 text-espresso/70 sm:text-base">
-              Colex Fresh is a Kenyan coffee brand being built
-              to connect the character of Kenya&apos;s coffee with
-              the needs and interests of buyers around the
-              world. Our focus is on exploring green coffee
-              sourcing opportunities, sharing clear product
-              information and creating meaningful conversations
-              with international coffee businesses and coffee
-              enthusiasts.
-            </p>
-
-            <Link
-              href="/#contact"
-              className="mt-8 inline-flex text-xs font-semibold tracking-[0.15em] text-forest transition-colors hover:text-gold"
-            >
-              CONNECT WITH COLEX FRESH →
-            </Link>
-          </div>
-        </div>
-      </section>
-
+        </section>
       {/* Contact */}
-      <section id="contact" className="bg-espresso px-6 py-24 text-center text-ivory lg:px-10 lg:py-28">
+      <section id="contact" className="bg-espresso px-6 py-20 text-center text-ivory lg:px-10 lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-[#d5b889]">
+          <p className="text-xs font-semibold tracking-[0.18em] text-gold-light">
             START A CONVERSATION
           </p>
 
@@ -311,7 +319,7 @@ export default function Home() {
 
           <a
             href="mailto:info@colexfresh.com"
-            className="mt-9 inline-flex min-h-14 items-center justify-center bg-ivory px-9 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-[#d5b889]"
+            className="mt-9 inline-flex min-h-14 items-center justify-center bg-ivory px-9 text-xs font-semibold tracking-[0.15em] text-espresso transition-colors hover:bg-gold-light"
           >
             EMAIL COLEX FRESH
           </a>
@@ -319,7 +327,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#241912] px-6 py-10 text-ivory lg:px-10">
+      <footer className="bg-espresso-deep px-6 py-12 text-ivory lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-serif text-xl tracking-[0.12em]">
@@ -331,7 +339,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-ivory/50">
-            From Kenya&apos;s highlands to the world. Explore Kenyan green coffee sourcing and roasted coffee from Colex Fresh.
+            From Kenya&apos;s highlands to the world.
           </p>
         </div>
       </footer>

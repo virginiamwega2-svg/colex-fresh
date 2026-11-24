@@ -7,7 +7,6 @@ import Link from "next/link";
 
 const navigation = [
   { label: "Our Coffee", href: "/coffee" },
-  { label: "Our Story", href: "/#story" },
   { label: "Wholesale", href: "/#wholesale" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -19,7 +18,7 @@ export default function SiteHeader() {
 
   return (
     <header className="relative z-50 border-b border-espresso/10 bg-ivory">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-8 lg:px-10">
 
         {/* Brand */}
         <Link
@@ -28,10 +27,10 @@ export default function SiteHeader() {
           className="flex shrink-0 flex-col"
           onClick={() => setMenuOpen(false)}
         >
-          <span className="font-serif text-xl font-semibold tracking-[0.12em] text-espresso sm:text-2xl">
+          <span className="font-serif text-2xl font-semibold tracking-[0.1em] text-espresso sm:text-2xl">
             COLEX FRESH
           </span>
-          <span className="mt-1 text-[8px] tracking-[0.24em] text-forest">
+          <span className="mt-1 text-[9px] font-medium tracking-[0.2em] text-forest">
             KENYAN SPECIALTY COFFEE
           </span>
         </Link>
@@ -39,13 +38,13 @@ export default function SiteHeader() {
         {/* Desktop navigation */}
         <nav
           aria-label="Main navigation"
-          className="hidden items-center gap-7 lg:flex"
+          className="hidden items-center gap-9 lg:flex"
         >
           {navigation.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm text-espresso/80 transition-colors hover:text-gold"
+              className="text-[13px] font-medium tracking-wide text-espresso/80 transition-colors duration-300 hover:text-gold"
             >
               {item.label}
             </Link>
@@ -55,7 +54,7 @@ export default function SiteHeader() {
         {/* Desktop enquiry button */}
         <Link
           href="/#contact"
-          className="hidden border border-forest px-5 py-3 text-xs font-semibold tracking-wider text-forest transition-colors hover:bg-forest hover:text-ivory lg:inline-flex"
+          className="hidden min-h-12 items-center border border-forest px-6 text-[11px] font-semibold tracking-[0.14em] text-forest transition-colors duration-300 hover:bg-forest hover:text-ivory lg:inline-flex"
         >
           START A SOURCING ENQUIRY
         </Link>
