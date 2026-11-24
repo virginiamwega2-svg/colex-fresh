@@ -44,17 +44,17 @@ export default function CoffeePage() {
 
       <section className="relative isolate overflow-hidden px-6 py-24 text-ivory lg:px-10 lg:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1791570923121-43674e6d8ee9?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=85&w=2400"
+          src="/images/kenyan-coffee-farm.jpg"
           alt=""
           fill
           sizes="100vw"
           preload
           className="object-cover -z-20"
         />
-        <div className="absolute inset-0 -z-10 bg-espresso/65" />
+        <div className="absolute inset-0 -z-10 bg-espresso/25" />
 
         <div className="relative z-10 mx-auto max-w-7xl animate-hero-enter">
-          <p className="text-xs font-semibold tracking-[0.3em] text-gold-light">
+          <p className="inline-block w-fit rounded-sm bg-espresso/85 px-4 py-2 text-xs font-semibold tracking-[0.3em] text-ivory">
             KENYAN COFFEE SOURCING & COLLECTIONS
           </p>
 
@@ -62,7 +62,7 @@ export default function CoffeePage() {
             Discover Kenyan coffee. Explore new possibilities.
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-ivory/75">
+          <p className="mt-7 max-w-2xl text-base leading-8 text-ivory/90">
             Explore Kenyan green coffee sourcing opportunities with
             Colex Fresh, alongside our current offering of roasted
             Kenyan coffee in whole-bean and ground formats.
@@ -110,9 +110,6 @@ export default function CoffeePage() {
                     {collection.detail}
                   </p>
 
-                  <span className="mt-10 block font-serif text-3xl italic text-gold-light">
-                    {collection.number}
-                  </span>
 
                   <h3 className={`mt-5 font-serif text-4xl sm:text-5xl ${collection.text}`}>
                     {collection.title}

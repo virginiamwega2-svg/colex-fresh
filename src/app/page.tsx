@@ -72,8 +72,8 @@ export default function Home() {
 
       {/* Brand philosophy */}
       <section className="px-6 py-16 lg:px-10 lg:py-20">
-        <div className="mx-auto grid max-w-7xl grid-cols-[0.85fr_1.15fr] items-center gap-3 sm:grid-cols-2 sm:gap-5 lg:gap-16">
-          <div className="relative order-1 aspect-[3/4] overflow-hidden lg:order-2 lg:aspect-[4/5]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 sm:grid-cols-2 sm:gap-5 lg:gap-16">
+          <div className="relative order-2 aspect-[3/4] overflow-hidden sm:order-1 lg:order-2 lg:aspect-[4/5]">
             <Image
               src="/images/coffee-cherries.jpg"
               alt="Coffee cherries growing on a branch"
@@ -83,7 +83,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="order-2 max-w-xl lg:order-1">
+          <div className="order-1 max-w-xl sm:order-2 lg:order-1">
             <p className="text-xs font-semibold tracking-[0.12em] text-gold">
               THE COLEX FRESH PHILOSOPHY
             </p>
